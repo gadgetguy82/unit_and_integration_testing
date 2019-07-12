@@ -39,4 +39,30 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal, 3);
   });
 
+  // integration tests
+  // concatenate multiple number button clicks
+  it('should concatenate multiple button clicks', function() {
+    calculator.numberClick(4);
+    calculator.numberClick(7);
+    calculator.numberClick(2);
+    assert.strictEqual(calculator.runningTotal, 472);
+  });
+
+  // chain multiple operations together
+  it('should chain multiple operations together', function() {
+    calculator.previousTotal = 5;
+    calculator.previousOperator = '-';
+    calculator.runningTotal = 3;
+    calculator.operatorClick('+');
+    assert.strictEqual(calculator.previousTotal, 2);
+    assert.strictEqual(calculator.newTotal, true);
+  });
+
+  // clear the running total without affecting the calculation
+  it('should clear the running total without affecting the calculation', function() {
+    calculator.runningTotal = 6;
+    calculator.clearClick();
+    assert.strictEqual(calculator.runningTotal, 0);
+  });
+
 });
