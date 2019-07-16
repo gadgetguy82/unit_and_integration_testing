@@ -7,7 +7,7 @@ window.onload = function(){
     runningTotal.value = calculator.runningTotal;
   };
 
-  //bind number clicks to number buttons
+  // bind number clicks to number buttons
   var numbers = document.querySelectorAll('.number');
   numbers.forEach(function(number) {
     number.onclick = function(e) {
@@ -32,7 +32,7 @@ window.onload = function(){
     calculator.clearClick();
     updateView();
   };
-  
+
 
 
 }
